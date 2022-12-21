@@ -7,8 +7,10 @@ public class SnakeandLadder {
         int start_position = 0;
         int win_position = 100;
 
-
         System.out.println("Start position is : " + start_position);
+        int loopcount=0;
+        Dice();
+
         while (start_position < win_position) {
 
             //to check options
@@ -28,6 +30,8 @@ public class SnakeandLadder {
             }
 
 
+            //if winpoint is more than 100
+
             if (start_position>win_position)
             {
                 start_position=win_position-Dice();
@@ -35,7 +39,10 @@ public class SnakeandLadder {
 
 
         }
+        loopcount++;
+
         System.out.println("Player reached " +start_position+ " position");
+        System.out.println("Number of times die roll:" +loopcount);
     }
 
 
@@ -43,15 +50,18 @@ public class SnakeandLadder {
         int min = 1;
         int max = 7;
 
+
         Random r = new Random();
         int Dice = r.nextInt(max);
         if (Dice == 0) {
             System.out.println("Invalid, please try again");
         } else {
             System.out.println("Dice is :" +Dice);
+
         }
         return Dice;
     }
+
 
 
 }
