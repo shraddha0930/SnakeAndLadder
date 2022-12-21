@@ -27,6 +27,13 @@ public class SnakeandLadder {
             System.out.println("player moves " + Dice() + " steps backward");
             }
 
+
+            if (start_position>win_position)
+            {
+                start_position=win_position-Dice();
+            }
+
+
         }
         System.out.println("Player reached " +start_position+ " position");
     }
