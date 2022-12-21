@@ -5,30 +5,32 @@ import java.util.Random;
 public class SnakeandLadder {
     public static void main(String[] args) {
         int start_position = 0;
+        int win_position = 100;
+
+
         System.out.println("Start position is : " + start_position);
-        Dice();
+        while (start_position < win_position) {
 
-        //to check options
+            //to check options
+            int option = (int) (((Math.random() * 10) % 3) + 1);
+            System.out.println("Option play is : " + option);
 
-        int option = (int) (((Math.random() * 10) % 3) + 1);
-
-        System.out.println("Option play is : " + option);
-
-        if (option == 1) {
+            if (option == 1) {
             System.out.println("Player cant move");
-
-        } else if (option == 2) {
+            } else if (option == 2) {
             System.out.println("Player got ladder");
             start_position = start_position + Dice();
             System.out.println("player moves " + Dice() + " steps forward");
-
-        } else {
+            } else {
             System.out.println("Player got snake");
             start_position = start_position - Dice();
             System.out.println("player moves " + Dice() + " steps backward");
-        }
+            }
 
+        }
+        System.out.println("Player reached " +start_position+ " position");
     }
+
 
     public static int Dice() {
         int min = 1;
