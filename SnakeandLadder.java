@@ -3,13 +3,24 @@ package day4Practiceproblem;
 import java.util.Random;
 
 public class SnakeandLadder {
-    public static void main(String[] args) {
-        int start_position = 0;
-        int win_position = 100;
 
+    static int player;
+    static int player1;
+    static int player2;
+    static int player1position;
+    static int start_position = 0;
+    static int win_position = 100;
+
+
+
+    public static void main(String[] args) {
         System.out.println("Start position is : " + start_position);
+        PlayerChance();
+    }
+    public static void optioncheck(){
+
+
         int loopcount=0;
-        Dice();
 
         while (start_position < win_position) {
 
@@ -39,11 +50,15 @@ public class SnakeandLadder {
 
 
         }
+
         loopcount++;
+        WinnerCheck();
 
         System.out.println("Player reached " +start_position+ " position");
         System.out.println("Number of times die roll:" +loopcount);
+
     }
+
 
 
     public static int Dice() {
@@ -61,8 +76,27 @@ public class SnakeandLadder {
         }
         return Dice;
     }
-
-
-
+    public static void PlayerChance()
+    {
+        if(player==player1) {
+            System.out.println("player1 turn");
+            Dice();
+            optioncheck();
+        }
+        else{
+            System.out.println("player2 turn");
+            Dice();
+            optioncheck();
+        }
+    }
+    public static void WinnerCheck()
+    {
+        if(player1position==win_position)
+        {
+            System.out.println("PLayer 1 won");
+        }else {
+            System.out.println("PLayer 2 won");
+        }
+    }
 }
 
